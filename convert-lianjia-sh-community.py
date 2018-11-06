@@ -24,7 +24,8 @@ def convert(line):
 
     # 处理建成年份
     if raw_data["year_built"] == u"暂无信息":
-        result["year_built"] = u""
+        # 如果没有建成年份, 则不在结果中存储该字段, 后续读取者作为None处理
+        pass
     else:
         match = re.match(u"^([0-9]+)年建成$", raw_data["year_built"])
         if match == None:
