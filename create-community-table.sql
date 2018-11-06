@@ -5,4 +5,5 @@ CREATE TABLE community (
     year_built YEAR,
     building_num INT,
     home_num INT
-);
+)
+CHARACTER SET = utf8;
