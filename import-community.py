@@ -31,6 +31,10 @@ def import_line(line, my):
                    u'VALUES (%(name)s, %(address)s, %(year_built)s, %(building_num)s, %(home_num)s)',
                    record)
 
+    # 关闭并提交
+    cursor.close()
+    my.commit()
+
 def main():
     # 创建参数解析器
     parser = argparse.ArgumentParser(description='Import community data to mysql.')
@@ -55,9 +59,6 @@ def main():
     # 逐条处理记录
     for line in input:
         import_line(line, my)
-
-    # 提交
-    my.commit()
 
     # 结束
     return
